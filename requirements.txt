@@ -1,0 +1,12 @@
+fastapi[all]
+sqlalchemy>=2.0.0
+passlib
+bcrypt==3.2.2
+python-jose[cryptography]
+httpx
+pyotp
+uvicorn[standard]
+psycopg2-binary
+
+# testing packages
+pytest
