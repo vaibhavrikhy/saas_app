@@ -64,3 +64,7 @@ secrets/
 credentials/
 settings.GITHUB_CLIENT_ID
 
+#sensitive files
+api_key.py
+github_loing.py
+
