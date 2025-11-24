@@ -1,51 +1,66 @@
-
+# Python
 __pycache__/
-*.py[cod]
+*.pyc
 *.pyo
 *.pyd
-*.pdb
-*.log
 *.sqlite3
 *.db
 
 
+# Virtual environment
 .venv/
 env/
 venv/
 
-
-.idea/
+# IDE settings
 .vscode/
+.idea/
+*.iml
+
+# OS-specific
+.DS_Store
+
+# Environment files
+.env
+.env.*
+
+# Logs
+*.log
+
+# Docker
+docker-compose.override.yml
+.env.docker
+*.pid
+*.seed
+*.bak
 *.swp
-*.swo
 
+# Testing & Coverage
+.pytest_cache/
+htmlcov/
+.coverage
+.cache/
+tests/__pycache__/
 
+# Build and distribution
+dist/
+build/
+*.egg-info/
+
+# Other temporary files
+tmp/
+
+# Secrets and credentials
 .env
 .env.local
-secrets/
+.env.*.backup
+*.pem
+*.key
+*.crt
+
+# Sensitive configs
 config/
-api_key.py
-github_login.py
+secrets/
+credentials/
+settings.GITHUB_CLIENT_ID
 
-
-.DS_Store
-Thumbs.db
-
-
-*.pid
-*.log
-docker-compose.override.yml
-*.tar
-*.bak
-*.old
-
-
-htmlcov/
-.tox/
-.nox/
-.coverage
-coverage.xml
-*.cover
-*.py,cover
-.cache
-pytest_cache/
