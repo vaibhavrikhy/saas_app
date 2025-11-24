@@ -37,4 +37,18 @@ def verify_password(plain_password, hashed_password):
 def hash_password(password: str) -> str:
     return pwd_context.hash(password)
 
+from pydantic_settings import BaseSettings
+
+class Settings(BaseSettings):
+    DATABASE_URL: str
+    SECRET_KEY: str
+    GITHUB_CLIENT_ID: str
+    GITHUB_CLIENT_SECRET: str
+
+    class Config:
+        env_file = ".env"
+
+settings = Settings()
+
+
 
