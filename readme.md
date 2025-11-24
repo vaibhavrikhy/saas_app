@@ -21,19 +21,6 @@ It integrates JWT, GitHub Login, Multi-Factor Authentication (MFA), and API Key 
 
 🧰 Swagger UI Documentation Built-In
 
-🧱 Architecture Overview
-┌────────────────────────────┐
-│          FastAPI           │
-│  ┌──────────────────────┐  │
-│  │ Auth (JWT + OAuth2)  │  │
-│  │ GitHub Login + MFA   │  │
-│  │ API Keys + RBAC      │  │
-│  └──────────────────────┘  │
-│           │                 │
-│       SQLAlchemy            │
-│           ▼                 │
-│      PostgreSQL (DB)        │
-└────────────────────────────┘
 
 ⚙️ Quick Start
 1️⃣ Clone the Repository
