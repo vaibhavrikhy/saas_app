@@ -1,4 +1,4 @@
-# github_login.py
+
 from fastapi import APIRouter, Depends, Request, HTTPException
 from fastapi.responses import RedirectResponse
 from authlib.integrations.starlette_client import OAuth
@@ -10,7 +10,6 @@ import os
 router = APIRouter()
 oauth = OAuth()
 
-# Register GitHub OAuth app
 oauth.register(
     name="github",
     client_id=os.getenv("GITHUB_CLIENT_ID"),
@@ -23,7 +22,6 @@ oauth.register(
 
 @router.get("/login/github")
 async def login_with_github(request: Request):
-    """Redirect user to GitHub OAuth page"""
     redirect_uri = request.url_for("github_auth_callback")
     return await oauth.github.authorize_redirect(request, redirect_uri)
 
@@ -32,7 +30,6 @@ async def github_auth_callback(
     request: Request,
     session: Session = Depends(get_session)
 ):
-    """Handle GitHub callback and create user if not exists"""
     token = await oauth.github.authorize_access_token(request)
     resp = await oauth.github.get("user", token=token)
     profile = resp.json()
@@ -43,7 +40,6 @@ async def github_auth_callback(
     username = profile["login"]
     email = profile.get("email") or f"{username}@github.com"
 
-    # Check if user exists; otherwise create
     user = session.query(User).filter(User.email == email).first()
     if not user:
         user = User(username=username, email=email, hashed_password="", role="user")

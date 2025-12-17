@@ -57,6 +57,7 @@ tmp/
 *.pem
 *.key
 *.crt
+*.api_key
 
 # Sensitive configs
 config/
