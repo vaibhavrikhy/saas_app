@@ -76,7 +76,6 @@ def login(
     if not user or not verify_password(form_data.password, user.hashed_password):
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Invalid credentials")
 
-    # MFA Verification
     if user.mfa_enabled:
         mfa_token = form_data.scopes[0] if form_data.scopes else None
         if not mfa_token or not verify_mfa_token(user.mfa_secret, mfa_token):
